@@ -1,0 +1,8 @@
+system/build/_deps/*-build/
+system/build/_deps/*-subbuild/
+system/build/arduino_corstone_test_main
+system/build/cmake_install.cmake
+system/build/CMakeCache.txt
+system/build/CMakeFiles/
+system/build/Makefile
+system/build/toolchains/
