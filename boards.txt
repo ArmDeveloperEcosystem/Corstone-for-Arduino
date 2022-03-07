@@ -1,0 +1,26 @@
+#
+# Copyright (c) 2022 Arm Limited and Contributors. All rights reserved.
+#
+# SPDX-License-Identifier: LGPL-2.1 
+#
+
+# Corstone-300
+# ---------------------------------------
+corstone_300.name=Arm Corstone-300
+
+corstone_300.build.mcu=cortex-m55
+corstone_300.build.f_cpu=25000000L
+corstone_300.build.board=CORSTONE_300
+corstone_300.build.core=arm
+corstone_300.build.extra_flags=
+corstone_300.build.ldscript=
+corstone_300.build.variant=corstone-300
+corstone_300.build.variant_system_lib=
+
+corstone_300.upload.tool=vht
+corstone_300.upload.tool.default=vht
+corstone_300.upload.tool.network=
+corstone_300.upload.protocol=
+corstone_300.upload.use_1200bps_touch=false
+corstone_300.upload.wait_for_upload_port=false
+corstone_300.upload.native_usb=false
