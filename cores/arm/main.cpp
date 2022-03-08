@@ -5,13 +5,15 @@
  * 
  */
 
+#include <stdarg.h>
+
 #include <FreeRTOS.h>
 #include <task.h>
 
 #define ARDUINO_MAIN
 #include "Arduino.h"
 
-void arduino_task()
+void arduino_task(void*)
 {
   setup();
 
@@ -29,4 +31,22 @@ int main()
   while (1);
 
   return 0;
+}
+
+extern "C" {
+  void error(const char *format, ...) {
+    va_list args;
+    char buffer[1024];
+
+    va_start(args, format);
+    vsnprintf(buffer, 1023, format, args);
+    va_end(args);
+    
+    Serial.print("*** ERROR: ");
+    Serial.print(buffer);
+    Serial.println(" ***");
+
+    while (1);
+    return;
+  }
 }
