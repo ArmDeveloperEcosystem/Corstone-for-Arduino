@@ -41,12 +41,18 @@ extern "C" {
     va_start(args, format);
     vsnprintf(buffer, 1023, format, args);
     va_end(args);
-    
+
     Serial.print("*** ERROR: ");
     Serial.print(buffer);
     Serial.println(" ***");
 
+    exit(1);
+  }
+
+  void _exit(int code) {
+    Serial.write((uint8_t)0x04);
+    Serial.write((uint8_t)code);
+
     while (1);
-    return;
   }
 }

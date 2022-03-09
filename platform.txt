@@ -1,4 +1,4 @@
-/:1# Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+# Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
 # Copyright (c) 2022 Arm Limited and Contributors. All rights reserved.
 #
 # This library is free software; you can redistribute it and/or
