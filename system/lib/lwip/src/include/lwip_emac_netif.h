@@ -30,7 +30,7 @@ typedef enum address_status_t {
 typedef struct netif_context_t {
     mdh_emac_t *emac;
     struct netif lwip_netif;
-    QueueHandle_t receive_semaphore;
+    TaskHandle_t task_handle;
     connection_status_t connected;
     bool dhcp_has_to_be_set;
     bool dhcp_started;

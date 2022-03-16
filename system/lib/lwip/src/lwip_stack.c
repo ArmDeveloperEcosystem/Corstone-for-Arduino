@@ -246,17 +246,15 @@ static err_t lwip_network_init(netif_context_t *context)
 
 void signal_receive(netif_context_t *context)
 {
-    xQueueGiveFromISR(context->receive_semaphore, NULL);
+    vTaskNotifyGiveFromISR( context->task_handle, NULL );
 }
 
 void net_task(void *pvParameters)
-{
-    printf("Net task started\r\n");
-    
+{    
     netif_context_t context = { 0 };
-    
-    context.receive_semaphore = xQueueCreate(1, 0);
-        
+
+    context.task_handle = xTaskGetCurrentTaskHandle();
+
     lwip_network_init(&context);
     ethernet_interface_init(&context);
     ethernet_interface_bringup(&context);
@@ -273,7 +271,7 @@ void net_task(void *pvParameters)
         sys_check_timeouts();
         
         /* handle input */
-        if (xQueueSemaphoreTake(context.receive_semaphore, 0)) {
+        if (ulTaskNotifyTake( pdFALSE, 1500 )) {
             ethernetif_process_input(&context);
         }
     }
