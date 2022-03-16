@@ -62,12 +62,10 @@ extern "C" {
 
   void __wrap_us_ticker_init(void)
   {
-    printf("__wrap_us_ticker_init\n");
   }
 
   void __wrap_us_ticker_util_wait(uint32_t us)
   {
-    printf("__wrap_us_ticker_util_wait: %u\n", us);
     vTaskDelay(us / 1000);
   }
 }
