@@ -126,7 +126,7 @@ static err_t ethernetif_output(struct netif *netif, struct pbuf *p)
         
         buf = mdh_network_stack_memory_manager_alloc_from_heap(
             memory_manager,
-            mdh_network_stack_memory_manager_get_payload_len(memory_manager, buf),
+            p->tot_len,
             mdh_emac_get_align(context->emac)
         );
 
