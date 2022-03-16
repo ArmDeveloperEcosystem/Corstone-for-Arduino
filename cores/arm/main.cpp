@@ -49,6 +49,10 @@ extern "C" {
     exit(1);
   }
 
+  int _write(int file, char *data, int len) {
+    return Serial.write((uint8_t*)data, len);
+  }
+
   void _exit(int code) {
     Serial.write((uint8_t)0x04);
     Serial.write((uint8_t)code);

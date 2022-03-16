@@ -280,7 +280,7 @@ u32_t sys_arch_mbox_fetch( sys_mbox_t * pxMailBox,
     {
         configASSERT( xInsideISR == ( portBASE_TYPE ) 0 );
 
-        if( pdTRUE == xQueueReceive( xMbox, &( *ppvBuffer ), ulTimeOut / portTICK_PERIOD_MS ) )
+        if( pdTRUE == xQueueReceive( xMbox, &( *ppvBuffer ), pdMS_TO_TICKS(ulTimeOut) ) )
         {
             ulReturn = 1UL;
         }
@@ -429,10 +429,10 @@ u32_t sys_arch_sem_wait( sys_sem_t * pxSemaphore,
 
     if( ulTimeout != 0UL )
     {
-        if( xSemaphoreTake( *pxSemaphore, ulTimeout / portTICK_PERIOD_MS ) == pdTRUE )
+        if( xSemaphoreTake( *pxSemaphore, pdMS_TO_TICKS(ulTimeout) ) == pdTRUE )
         {
             xEndTime = xTaskGetTickCount();
-            xElapsed = ( xEndTime - xStartTime ) * portTICK_PERIOD_MS;
+            xElapsed = ( xEndTime - xStartTime ) * pdMS_TO_TICKS(1);
             ulReturn = xElapsed;
         }
         else
@@ -447,7 +447,7 @@ u32_t sys_arch_sem_wait( sys_sem_t * pxSemaphore,
         }
 
         xEndTime = xTaskGetTickCount();
-        xElapsed = ( xEndTime - xStartTime ) * portTICK_PERIOD_MS;
+        xElapsed = ( xEndTime - xStartTime ) * pdMS_TO_TICKS(1);
 
         if( xElapsed == 0UL )
         {
