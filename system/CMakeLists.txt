@@ -28,11 +28,16 @@ set(CMAKE_SYSTEM_PROCESSOR cortex-m55)
 # Set library to std
 set(MBED_C_LIB "std")
 
+# Set FVP variant
+set(VARIANT "FVP")
+
 # Make the Open IoT SDK available 
 FetchContent_MakeAvailable(open_iot_sdk)
 
 # libarduino_corstone_system
 project(arduino_corstone_system LANGUAGES C CXX ASM)
+
+add_subdirectory(lib/lwip)
 
 target_include_directories(freertos-kernel 
     INTERFACE 
@@ -41,12 +46,14 @@ target_include_directories(freertos-kernel
 
 add_library(arduino_corstone_system STATIC
     system.c
+    freertos_adaptation.c
 )
 
 target_link_libraries(arduino_corstone_system
     mcu-driver-hal
     freertos-kernel
     freertos-kernel-heap-3
+    lwip
 )
 
 if(TARGET mdh-arm-an547-mps3-startup)
@@ -57,9 +64,7 @@ endif()
 add_executable(arduino_corstone_test_main system.c test_main.c)
 
 target_link_libraries(arduino_corstone_test_main
-    mcu-driver-hal
-    freertos-kernel
-    freertos-kernel-heap-3
+    arduino_corstone_system
 )
 
 if(TARGET mdh-arm-an547-mps3-startup)

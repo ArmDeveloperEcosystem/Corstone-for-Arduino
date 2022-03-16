@@ -13,7 +13,6 @@
 #include "lwip_emac_netif.h"
 #include "lwip_memory_manager.h"
 #include "lwip_stack.h"
-#include "FreeRTOS_IP.h"
 
 /* secure sockets requires errno to communicate error codes */
 int errno = 0;
@@ -117,8 +116,6 @@ static void netif_link_irq(struct netif *netif)
     }
 }
 
-extern void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent );
-
 static void netif_status_irq(struct netif *netif)
 {
     netif_context_t *context = (netif_context_t *)(netif->state);
@@ -147,13 +144,10 @@ static void netif_status_irq(struct netif *netif)
                     context->connected = CONNECTION_STATUS_LOCAL_UP;
                 }
 #endif
-                vApplicationIPNetworkEventHook(eNetworkUp);
             }
         }
     } else if (!netif_is_up(netif) && netif_is_link_up(netif)) {
-        context->connected = CONNECTION_STATUS_DISCONNECTED;
-        
-        vApplicationIPNetworkEventHook(eNetworkDown);
+        context->connected = CONNECTION_STATUS_DISCONNECTED;        
     }
 }
 

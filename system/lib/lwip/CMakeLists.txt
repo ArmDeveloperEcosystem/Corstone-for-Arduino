@@ -15,6 +15,8 @@ target_include_directories(lwip
         ${lwip_SOURCE_DIR}/src/include
         ${lwip_SOURCE_DIR}/src/include/netif
         ${lwip_SOURCE_DIR}/src/include/lwip
+        ${CMAKE_CURRENT_LIST_DIR}/src/include
+        ${CMAKE_CURRENT_LIST_DIR}/src/lwip_osal/include
 )
 
 target_sources(lwip
@@ -63,10 +65,15 @@ target_sources(lwip
         ${lwip_SOURCE_DIR}/src/core/ipv6/mld6.c
         ${lwip_SOURCE_DIR}/src/core/ipv6/nd6.c
         ${lwip_SOURCE_DIR}/src/netif/ethernet.c
+
+        ${CMAKE_CURRENT_LIST_DIR}/src/lwip_emac_netif.c
+        ${CMAKE_CURRENT_LIST_DIR}/src/lwip_memory_manager.c
+        ${CMAKE_CURRENT_LIST_DIR}/src/lwip_stack.c
+        ${CMAKE_CURRENT_LIST_DIR}/src/lwip_osal/sys_arch.c
 )
 
 target_link_libraries(lwip
     PRIVATE
-        lib-bsp
+        mcu-driver-hal
         freertos-kernel
 )

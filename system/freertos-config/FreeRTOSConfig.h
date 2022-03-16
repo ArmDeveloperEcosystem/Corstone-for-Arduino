@@ -30,6 +30,7 @@
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION         0
 #define configUSE_PREEMPTION                            1
 #define configUSE_TIME_SLICING                          0
+#define configNUM_THREAD_LOCAL_STORAGE_POINTERS         5
 #define configMAX_PRIORITIES                            5
 #define configIDLE_SHOULD_YIELD                         1
 #define configUSE_16_BIT_TICKS                          0
@@ -39,6 +40,7 @@
 #define configMINIMAL_SECURE_STACK_SIZE                 1024
 #define configTOTAL_HEAP_SIZE                           (size_t)(50 * 1024)
 #define configMAX_TASK_NAME_LEN                         12
+#define configSUPPORT_STATIC_ALLOCATION                 1
 /* OS features */
 #define configUSE_MUTEXES                               1
 #define configUSE_TICKLESS_IDLE                         1
@@ -79,6 +81,7 @@
 #define INCLUDE_xTaskGetSchedulerState                  0
 #define INCLUDE_xSemaphoreGetMutexHolder                0
 #define INCLUDE_xTimerPendFunctionCall                  1
+#define INCLUDE_xTaskAbortDelay                         1
 #define configUSE_STATS_FORMATTING_FUNCTIONS            1
 #define configCOMMAND_INT_MAX_OUTPUT_SIZE               2048
 #ifdef __NVIC_PRIO_BITS
@@ -103,4 +106,7 @@
 #define vPortSVCHandler                                 SVC_Handler
 #define xPortSysTickHandler                             SysTick_Handler
 #endif
+/* Map the logging task's printf to the board specific output function. */
+#define configPRINTF                                    printf
+
 #endif /* FREERTOS_CONFIG_H */
