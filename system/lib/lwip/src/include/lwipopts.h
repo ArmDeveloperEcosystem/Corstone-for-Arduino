@@ -8,6 +8,7 @@
 #define MEM_ALIGNMENT            4U
 
 #define LWIP_TIMEVAL_PRIVATE 0
+#define LWIP_SO_RCVBUF 1
 
 #undef TCPIP_THREAD_PRIO
 #define TCPIP_THREAD_PRIO (configMAX_PRIORITIES - 1U)
