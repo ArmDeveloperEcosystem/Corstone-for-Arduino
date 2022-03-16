@@ -59,7 +59,7 @@
 #define configASSERT(x)                                 if ((x) == 0) { taskDISABLE_INTERRUPTS(); for( ;; ); }
 #define configQUEUE_REGISTRY_SIZE                       0
 /* Timers and queues */
-#define configUSE_TIMERS                                0
+#define configUSE_TIMERS                                1
 #define configTIMER_TASK_PRIORITY                       3
 #define configTIMER_TASK_STACK_DEPTH                    configMINIMAL_STACK_SIZE
 #define configTIMER_QUEUE_LENGTH                        5
