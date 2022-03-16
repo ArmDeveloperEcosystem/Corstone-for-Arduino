@@ -96,6 +96,7 @@
     #define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()
     #define portGET_RUN_TIME_COUNTER_VALUE()            0
     #define configTICK_RATE_HZ                          (TickType_t)10000
+    #define pdMS_TO_TICKS(ms)                           (ms * 1200)
 #endif /* __IASMARM__ */
 #if defined(CPU_CORTEX_M3) || defined(CPU_CORTEX_M4) || defined(CPU_CORTEX_M7)
 #define xPortPendSVHandler                              PendSV_Handler
