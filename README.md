@@ -15,6 +15,10 @@ Supported platforms:
 
 You can [register for Free AWS EC2 CPU Credits](https://www.arm.com/company/contact-us/virtual-hardware) to try out Arm Virtual Hardware on AWS.
 
+## Getting Started
+
+Follow the [getting started guide](https://github.com/ArmDeveloperEcosystem/Corstone-for-Arduino/wiki/00.-Getting-Started-with-Corstone-for-Arduino) to start using the [Arduino IDE](https://www.arduino.cc/en/software) and [arduino-cli](https://github.com/arduino/arduino-cli) with [Arm Virtual Hardware](https://www.arm.com/products/development-tools/simulation/virtual-hardware).
+
 ## Acknowledgements
 
 This software was developed on top of:
