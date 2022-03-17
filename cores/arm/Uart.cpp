@@ -67,3 +67,6 @@ size_t Uart::write(const uint8_t data)
 
 static serial_t serial;
 Uart Serial(&serial, CONSOLE_TX, CONSOLE_RX);
+
+static serial_t serial1;
+Uart Serial1(&serial1, U1_TX, U1_RX);

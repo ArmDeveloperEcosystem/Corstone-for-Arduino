@@ -34,3 +34,4 @@ private:
 };
 
 extern Uart Serial;
+extern Uart Serial1;
