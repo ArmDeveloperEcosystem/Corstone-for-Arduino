@@ -4,6 +4,8 @@
 
 Enables [Arm Virtual Hardware](https://www.arm.com/products/development-tools/simulation/virtual-hardware) Corstone platforms to be used with the [Arduino IDE](https://www.arduino.cc/en/software) and [arduino-cli](https://github.com/arduino/arduino-cli).
 
+![Stack Diagram](stack.png)
+
 Supported platforms:
 
  * [Arm Virtual Hardware for Corstone-300](https://developer.arm.com/tools-and-software/open-source-software/arm-platforms-software/arm-ecosystem-fvps)
