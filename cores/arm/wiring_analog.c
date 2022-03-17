@@ -7,14 +7,19 @@
 
 #include "Arduino.h"
 
-int analogRead(pin_size_t pin)
+__attribute__((weak)) void analogReference(uint8_t mode)
+{
+  (void)mode;
+}
+
+__attribute__((weak)) int analogRead(pin_size_t pin)
 {
   (void)pin;
 
   return 0;
 }
 
-void analogWrite(pin_size_t pin, int value)
+__attribute__((weak)) void analogWrite(pin_size_t pin, int value)
 {
   (void)pin;
   (void)value;
