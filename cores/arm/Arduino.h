@@ -39,6 +39,8 @@ extern "C"{
 #define interrupts()    __enable_irq()
 #define noInterrupts()  __disable_irq()
 
+#define digitalPinToInterrupt(P)   ( P )
+
 // undefine stdlib's abs if encountered
 #ifdef abs
 #undef abs
