@@ -13,7 +13,7 @@ Supported platforms:
 ## Requirements
 
  * [AWS account](https://aws.amazon.com/)
- * [Arm Virtual Hardware](https://www.arm.com/company/contact-us/virtual-hardware) instance on AWS EC2
+ * [Arm Virtual Hardware](https://aws.amazon.com/marketplace/pp/prodview-urbpq7yo5va7g) instance on AWS EC2
 
 You can [register for Free AWS EC2 CPU Credits](https://www.arm.com/company/contact-us/virtual-hardware) to try out Arm Virtual Hardware on AWS.
 
