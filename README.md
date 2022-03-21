@@ -2,6 +2,8 @@
 
 ⚠️ Experimental ⚠️
 
+![Arduino-IDE-with-FVP](https://raw.githubusercontent.com/wiki/ArmDeveloperEcosystem/Corstone-for-Arduino/images/Arduino-IDE-with-FVP.png)
+
 Enables [Arm Virtual Hardware](https://www.arm.com/products/development-tools/simulation/virtual-hardware) Corstone platforms to be used with the [Arduino IDE](https://www.arduino.cc/en/software) and [arduino-cli](https://github.com/arduino/arduino-cli).
 
 Supported platforms:
