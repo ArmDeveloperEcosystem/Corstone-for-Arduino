@@ -28,6 +28,7 @@ void Uart::begin(unsigned long baudrate, uint16_t config)
   // TODO: use config
   serial_init((serial_t*)_serial, (PinName)_txPin, (PinName)_rxPin);
   serial_baud((serial_t*)_serial, baudrate);
+  serial_format((serial_t*)_serial, 8, ParityNone, 1);
 }
 
 void Uart::end()
@@ -36,7 +37,7 @@ void Uart::end()
 
 int Uart::available()
 {
-  return 0;
+  return serial_readable((serial_t*)_serial);
 }
 
 int Uart::availableForWrite()
@@ -51,6 +52,10 @@ int Uart::peek()
 
 int Uart::read()
 {
+  if (available()) {
+    return serial_getc((serial_t*)_serial);
+  }
+
   return -1;
 }
 
